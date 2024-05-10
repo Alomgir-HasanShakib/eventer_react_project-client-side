@@ -37,28 +37,66 @@ const NavBar = () => {
 
       <li>
         <details>
-          <summary className="text-gray-400 md:text-xl isActive:currentselect">Dashboard</summary>
+          <summary className="text-gray-400 md:text-xl isActive:currentselect">
+            Dashboard
+          </summary>
           <ul className="p-2 bg-base-100 rounded-t-none md:text-xl">
-            <Link>
+            <NavLink
+              to="/addevent"
+              className={({ isActive, isPending, isTransitioning }) =>
+                [
+                  isPending ? "pending" : "",
+                  isActive ? "currentselect" : "",
+                  isTransitioning ? "transitioning" : "",
+                ].join(" ")
+              }
+            >
               <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
                 Add Event
               </li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink
+              to="/manageEvent"
+              className={({ isActive, isPending, isTransitioning }) =>
+                [
+                  isPending ? "pending" : "",
+                  isActive ? "currentselect" : "",
+                  isTransitioning ? "transitioning" : "",
+                ].join(" ")
+              }
+            >
               <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
                 Manage Event
               </li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink
+              to="/bookedEvent"
+              className={({ isActive, isPending, isTransitioning }) =>
+                [
+                  isPending ? "pending" : "",
+                  isActive ? "currentselect" : "",
+                  isTransitioning ? "transitioning" : "",
+                ].join(" ")
+              }
+            >
               <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
                 Booked Event
               </li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink
+              to="/toDoEvent"
+              className={({ isActive, isPending, isTransitioning }) =>
+                [
+                  isPending ? "pending" : "",
+                  isActive ? "currentselect" : "",
+                  isTransitioning ? "transitioning" : "",
+                ].join(" ")
+              }
+            >
               <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
                 Event to-do
               </li>
-            </Link>
+            </NavLink>
           </ul>
         </details>
       </li>
@@ -91,9 +129,9 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{navLInk}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn bg-primaryColor text-white md:px-8 md:text-xl uppercase font-normal">
+        <Link to='/login' className="btn bg-primaryColor text-white md:px-8 md:text-xl uppercase font-normal">
           Log in
-        </a>
+        </Link>
       </div>
     </div>
   );
