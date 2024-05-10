@@ -6,10 +6,12 @@ const Main = () => {
   return (
     <div>
       {/* navbar  */}
-      <NavBar></NavBar>
+     <div className="shadow-m">
+     <NavBar></NavBar>
+     </div>
 
       {/* outlet  */}
-      <div className="min-h-[calc(100vh-306px)]">
+      <div className="min-h-[calc(100vh-373px)]">
         <Outlet></Outlet>
       </div>
 
