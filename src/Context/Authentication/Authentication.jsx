@@ -9,13 +9,13 @@ import {
   updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect, useState } from "react";
-import app from "../Firebase/Firebase.config";
+import app from "../../Firebase/Firebase.config";
 
-export const contextprovider = createContext(null);
+export const AuthContext = createContext(null);
 // social media login
 const googleprovider = new GoogleAuthProvider();
 
-const AuthContext = ({ children }) => {
+const Authentication = ({ children }) => {
   const auth = getAuth(app);
   const [loader, setLoader] = useState(true);
   // manage user
@@ -37,7 +37,7 @@ const AuthContext = ({ children }) => {
     setLoader(true);
     return signInWithPopup(auth, googleprovider);
   };
-
+ 
   // sign Out user
 
   const logOut = () => {
@@ -69,14 +69,14 @@ const AuthContext = ({ children }) => {
     loader,
     loginUser,
     user,
+    setUser,
     logOut,
+    googleLogin,
     updateUserProfile,
   };
   return (
-    <contextprovider.Provider value={authInfo}>
-      {children}
-    </contextprovider.Provider>
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
 };
 
-export default AuthContext;
+export default Authentication;
