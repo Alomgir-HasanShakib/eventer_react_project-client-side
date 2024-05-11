@@ -63,7 +63,7 @@ const NavBar = () => {
                 }
               >
                 <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
-                  Add Event
+                  Add Service
                 </li>
               </NavLink>
               <NavLink
@@ -77,7 +77,7 @@ const NavBar = () => {
                 }
               >
                 <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
-                  Manage Event
+                  Manage Service
                 </li>
               </NavLink>
               <NavLink
@@ -91,7 +91,7 @@ const NavBar = () => {
                 }
               >
                 <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
-                  Booked Event
+                  Booked Service
                 </li>
               </NavLink>
               <NavLink
@@ -105,7 +105,7 @@ const NavBar = () => {
                 }
               >
                 <li className="mb-3 hover:bg-primaryColor p-2  hover:rounded-md">
-                  Event to-do
+                  Service to-do
                 </li>
               </NavLink>
             </ul>

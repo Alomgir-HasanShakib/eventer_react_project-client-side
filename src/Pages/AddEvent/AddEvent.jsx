@@ -1,11 +1,60 @@
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../Context/Authentication/Authentication";
 
 const AddEvent = () => {
+  // handle services
+const {user} = useContext(AuthContext)
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const handleAddItem = (e) => {
     e.preventDefault();
     const form = e.target;
     const imageUrl = form.photoUrl.value;
-    console.log(imageUrl);
+    const serviceName = form.serviceName.value;
+    const price = form.price.value;
+    const serviceArea = form.serviceArea.value;
+    const description = form.description.value;
+    const providerName = user.displayName 
+    const providerEmail = user.email
+    const providerphoto = user.photoURL
+
+    const result = { imageUrl, serviceName, serviceArea, price, description,providerEmail,providerName,providerphoto };
+
+    // fetch data for sending server side
+    fetch(`${import.meta.env.VITE_API}/addServices`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(result),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Data Successfully Added to the DataBase",
+            showClass: {
+              popup: `
+                animate__animated
+                animate__fadeInUp
+                animate__faster
+              `,
+            },
+            hideClass: {
+              popup: `
+                animate__animated
+                animate__fadeOutDown
+                animate__faster
+              `,
+            },
+          });
+          // navigate(location?.state ? location?.state : "/");
+        }
+      });
   };
   return (
     <div className="mx-3">
@@ -91,7 +140,7 @@ const AddEvent = () => {
           </div>
 
           <div className="flex justify-end mt-6">
-            <button className="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-primaryColor rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
+            <button className="px-8 py-2.5 leading-5 flex items-center text-white transition-colors duration-300 transform bg-primaryColor rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Add Service
             </button>
           </div>
