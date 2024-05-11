@@ -68,10 +68,15 @@ const router = createBrowserRouter([
         element: <Registration></Registration>,
       },
       {
-        path: '/details/:_id',
-        element:<Details></Details>,
-        loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices`)
-      }
+        path: "/details/:_id",
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API}/allServices`),
+      },
     ],
   },
 ]);
