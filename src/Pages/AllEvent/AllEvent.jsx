@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet-async"
 
 const AllEvent = () => {
   return (
-    <div>AllEvent</div>
+    <div>
+       <Helmet>
+        <title>All Event</title>
+      </Helmet>AllEvent</div>
   )
 }
 

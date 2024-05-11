@@ -5,6 +5,8 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/Authentication/Authentication";
 import toast, { Toaster } from "react-hot-toast";
+import { AiOutlineLogin } from "react-icons/ai";
+import { LuLogOut } from "react-icons/lu";
 
 const NavBar = () => {
   const { user, logOut, loader } = useContext(AuthContext);
@@ -147,7 +149,8 @@ const NavBar = () => {
               to="/login"
               className="btn bg-primaryColor text-white md:px-8 md:text-xl uppercase font-normal"
             >
-              Log in
+             <AiOutlineLogin></AiOutlineLogin>Log In
+             
             </Link>
           </div>
         )
@@ -159,14 +162,14 @@ const NavBar = () => {
               className="w-10 mr-2 tooltip rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
               data-tip={user.displayName}
             >
-              <img className="rounded-full ring" src={user.photoURL} />
+              <img className="rounded-full ring" src={user?.photoURL} />
             </button>
           </div>
           <button
             onClick={handleLogout}
             className="btn bg-primaryColor text-white md:px-8 md:text-xl uppercase font-normal"
           >
-            Log Out
+            <LuLogOut className='text-white font-extrabold'></LuLogOut>
           </button>
         </div>
       )}

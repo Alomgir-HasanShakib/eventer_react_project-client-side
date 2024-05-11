@@ -1,8 +1,14 @@
+import { Helmet } from "react-helmet-async";
 
 const AddEvent = () => {
   return (
-    <div>AddEvent</div>
-  )
-}
+    <div>
+      <Helmet>
+        <title>Add Event</title>
+      </Helmet>
+      AddEvent
+    </div>
+  );
+};
 
-export default AddEvent
+export default AddEvent;
