@@ -8,6 +8,8 @@ import BoookedEvent from "../Pages/BookedEvent/BoookedEvent";
 import EventToDo from "../Pages/EventToDo/EventToDo";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import PrivateRoute from "./PrivateRoute";
+import Details from "../Pages/serviceDetails/Details";
 
 const router = createBrowserRouter([
   {
@@ -24,19 +26,38 @@ const router = createBrowserRouter([
       },
       {
         path: "/addevent",
-        element: <AddEvent></AddEvent>,
+        element: (
+          <PrivateRoute>
+            <AddEvent></AddEvent>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/manageEvent",
-        element: <ManageEvent></ManageEvent>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <ManageEvent></ManageEvent>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/bookedEvent",
-        element: <BoookedEvent></BoookedEvent>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <BoookedEvent></BoookedEvent>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/toDoEvent",
-        element: <EventToDo></EventToDo>,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <EventToDo></EventToDo>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
@@ -46,6 +67,11 @@ const router = createBrowserRouter([
         path: "/registration",
         element: <Registration></Registration>,
       },
+      {
+        path: '/details/:_id',
+        element:<Details></Details>,
+        loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices`)
+      }
     ],
   },
 ]);
