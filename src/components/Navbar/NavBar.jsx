@@ -41,7 +41,7 @@ const NavBar = () => {
         to="/allevents"
       >
         <li className="text-gray-400 text-xl">
-          <span>Event</span>
+          <span>ALL Event</span>
         </li>
       </NavLink>
 

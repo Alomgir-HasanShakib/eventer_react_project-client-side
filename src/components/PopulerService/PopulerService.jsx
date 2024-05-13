@@ -9,6 +9,7 @@ const PopulerService = ({ service }) => {
     serviceName,
     imageUrl,
     _id,
+    serviceArea
   } = service;
 
   return (
@@ -38,6 +39,9 @@ const PopulerService = ({ service }) => {
             </p>
           </div>
           <span className="text-white ">Price: ${price}</span>
+          <p className="max-w-lg mt-6 text-white  ">
+              Service Area: {serviceArea} 
+              </p>
           <div className="mt-4">
             <div className="flex items-center mb-10">
               <div className="flex items-center">

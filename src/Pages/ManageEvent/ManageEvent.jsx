@@ -5,7 +5,7 @@ const ManageEvent = () => {
     <div>
       
       <Helmet>
-        <title>Manage Event</title>
+        <title>Manage Service</title>
       </Helmet>ManageEvent</div>
   )
 }

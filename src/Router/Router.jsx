@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home";
-import AllEvent from "../Pages/AllEvent/AllEvent";
+import AllEvent from "../Pages/AllEvent/AllEvents";
 import AddEvent from "../Pages/AddEvent/AddEvent";
 import ManageEvent from "../Pages/ManageEvent/ManageEvent";
 import BoookedEvent from "../Pages/BookedEvent/BoookedEvent";
@@ -23,6 +23,8 @@ const router = createBrowserRouter([
       {
         path: "/allevents",
         element: <AllEvent></AllEvent>,
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API}/allServices`),
       },
       {
         path: "/addevent",

@@ -4,7 +4,7 @@ const BoookedEvent = () => {
   return (
     <div>
        <Helmet>
-        <title>Booked Event</title>
+        <title>Booked Service</title>
       </Helmet>BoookedEvent</div>
   )
 }

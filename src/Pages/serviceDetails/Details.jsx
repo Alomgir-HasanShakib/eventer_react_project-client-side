@@ -13,6 +13,7 @@ const Details = () => {
     price,
     serviceName,
     imageUrl,
+   
   } = services;
   return (
     <div>
@@ -29,7 +30,7 @@ const Details = () => {
             <div className="mt-8 lg:w-1/2 lg:px-6 lg:mt-0">
               <p className="text-5xl font-semibold text-blue-500 ">“</p>
 
-              <h1 className="text-2xl font-semibold text-gray-800 dark:text-white lg:text-3xl lg:w-96">
+              <h1 className="text-2xl capitalize font-semibold text-gray-800 dark:text-white lg:text-3xl lg:w-96">
                 {serviceName}
               </h1>
 
@@ -39,6 +40,7 @@ const Details = () => {
               <p className="max-w-lg mt-6 text-gray-500 dark:text-gray-400 ">
                 Price: ${price} 
               </p>
+            
 
               <h3 className="mt-6 text-lg font-medium text-blue-500 pb-5">
                 {providerName}
