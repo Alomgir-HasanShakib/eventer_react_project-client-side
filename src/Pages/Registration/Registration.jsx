@@ -17,7 +17,8 @@ const Registration = () => {
   } = useForm();
 
   // context for authentication
-  const { createUser, googleLogin, } = useContext(AuthContext);
+  const { createUser, googleLogin, updateUserProfile, setUser, user } =
+    useContext(AuthContext);
 
   // console.log(context);
   const location = useLocation();
@@ -36,32 +37,19 @@ const Registration = () => {
       .catch((err) => toast.error("Login Error!"));
   };
   //     email password base login system
-  const handleSignUp = async(data) => {
+  const handleSignUp = async (data) => {
     const { email, password, username, photourl } = data;
 
-    console.log(email, password);
-    if (password.length < 6) {
-      return toast.error("Password length must be 6 character");
+    try {
+      const result = await createUser(email, password);
+
+      await updateUserProfile(username, photourl);
+      setUser({ ...user, photoURL: photourl, displayName: username });
+      toast.success("Registration Success");
+      navigate(location?.state ? location.state : "/");
+    } catch (error) {
+      toast.error("Registration Error");
     }
-    if (/^(?=.*[a-z])(?=.*[A-Z]).+$/.test(password)) {
-      return( createUser(email, password)
-        .then((result) => {
-          result.user.displayName = username;
-          result.user.photoURL = photourl;
-          toast.success("Successfully Register!");
-          navigate(location?.state ? location.state : "/");
-        })
-        .catch((error) => {
-          toast.error("Registration error");
-        })
-        
-      )
-    } else {
-      return toast.error(
-        "Password should have atleast one uppercase and lowercase character"
-      );
-    }
-    
   };
 
   return (

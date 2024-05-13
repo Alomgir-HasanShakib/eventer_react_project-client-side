@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../Pages/serviceDetails/Details";
+import UpdatePage from "../Pages/UpdatedPage/UpdatePage";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,8 @@ const router = createBrowserRouter([
             <ManageEvent></ManageEvent>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API}/allServices`),
       },
       {
         path: "/bookedEvent",
@@ -78,6 +81,15 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`${import.meta.env.VITE_API}/allServices`),
+      },
+      {
+        path: "/updateService/:id",
+        element: (
+          <PrivateRoute>
+            <UpdatePage></UpdatePage>
+          </PrivateRoute>
+        ),
+        loader: ({params})=> fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
       },
     ],
   },
