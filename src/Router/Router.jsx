@@ -83,14 +83,10 @@ const router = createBrowserRouter([
           fetch(`${import.meta.env.VITE_API}/allServices`),
       },
       {
-        path: "/updateService/:id",
-        element: (
-          <PrivateRoute>
-            <UpdatePage></UpdatePage>
-          </PrivateRoute>
-        ),
-        loader: ({params})=> fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
-      },
+        path: '/updateService/:id',
+        element: <UpdatePage></UpdatePage>,
+        loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
+      }
     ],
   },
 ]);

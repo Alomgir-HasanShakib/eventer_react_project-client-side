@@ -1,9 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+
 import { FaRegEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import Swal from "sweetalert2";
 
-const ManageService = ({ service }) => {
+const ManageService = ({ service, setServicesData, servicesdata }) => {
   const {
     providerphoto,
     providerName,
@@ -14,6 +15,42 @@ const ManageService = ({ service }) => {
     _id,
     serviceArea,
   } = service;
+
+  const handleDelete = (_id) => {
+    console.log(_id);
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`${import.meta.env.VITE_API}/allServices/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+
+              const remainigServiceData = servicesdata.filter(
+                (service) => service._id !== _id
+              );
+              setServicesData(remainigServiceData);
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
@@ -62,8 +99,18 @@ const ManageService = ({ service }) => {
               </div>
             </div>
             <div className="flex flex-col md:flex-row">
-            <Link to={`/updateService/${_id}`} className="btn bg-blue-500 border-none px-10 text-white mr-5 mb-5 w-full md:w-[50%]">Edit <FaRegEdit></FaRegEdit></Link>
-            <Link className="btn bg-red-500 border-none px-10 text-white w-full  md:w-[50%]">Delete <MdDelete></MdDelete></Link>
+              <Link
+                to={`/updateService/${_id}`}
+                className="btn bg-blue-500 border-none px-10 text-white mr-5 mb-5 w-full md:w-[50%]"
+              >
+                Edit <FaRegEdit></FaRegEdit>
+              </Link>
+              <button
+                onClick={() => handleDelete(_id)}
+                className="btn bg-red-500 border-none px-10 text-white w-full  md:w-[50%]"
+              >
+                Delete <MdDelete></MdDelete>
+              </button>
             </div>
           </div>
         </div>
