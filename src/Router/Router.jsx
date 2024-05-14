@@ -25,8 +25,6 @@ const router = createBrowserRouter([
       {
         path: "/allevents",
         element: <AllEvent></AllEvent>,
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_API}/allServices`),
       },
       {
         path: "/addevent",
@@ -65,6 +63,8 @@ const router = createBrowserRouter([
             <EventToDo></EventToDo>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API}/allBookedServices`),
       },
       {
         path: "/login",
