@@ -4,6 +4,7 @@ import Banner from "./Banner";
 import PoppularServices from "./PoppularServices";
 import NewsLater from "../../components/Newslatter/NewsLater";
 import FAQ from "../../components/FAQ/FAQ";
+import CTApage from "../../components/CTA/CTApage";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <PoppularServices></PoppularServices>
       <NewsLater></NewsLater>
       <FAQ></FAQ>
+      <CTApage></CTApage>
     </div>
   );
 };
