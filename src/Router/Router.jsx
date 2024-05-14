@@ -11,6 +11,7 @@ import Registration from "../Pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
 import Details from "../Pages/serviceDetails/Details";
 import UpdatePage from "../Pages/UpdatedPage/UpdatePage";
+import BookedPage from "../Pages/BookedPages/BookedPage";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,11 @@ const router = createBrowserRouter([
       {
         path: '/updateService/:id',
         element: <UpdatePage></UpdatePage>,
+        loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
+      },
+      {
+        path: '/bookedService/:id',
+        element: <BookedPage></BookedPage>,
         loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
       }
     ],

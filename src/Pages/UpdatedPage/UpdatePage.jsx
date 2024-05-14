@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
@@ -52,6 +53,7 @@ const UpdatePage = () => {
     };
   return (
     <div>
+      <Helmet><title>Service Update Page</title></Helmet>
       {" "}
       <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 mt-24 mb-16 py-4">
         <h2 className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
