@@ -55,6 +55,7 @@ const router = createBrowserRouter([
             <BoookedEvent></BoookedEvent>
           </PrivateRoute>
         ),
+        loader: () => fetch(`${import.meta.env.VITE_API}/allBookedServices`),
       },
       {
         path: "/toDoEvent",
@@ -84,15 +85,17 @@ const router = createBrowserRouter([
           fetch(`${import.meta.env.VITE_API}/allServices`),
       },
       {
-        path: '/updateService/:id',
+        path: "/updateService/:id",
         element: <UpdatePage></UpdatePage>,
-        loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`),
       },
       {
-        path: '/bookedService/:id',
+        path: "/bookedService/:id",
         element: <BookedPage></BookedPage>,
-        loader: ({params})=>fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`)
-      }
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_API}/allServices/${params.id}`),
+      },
     ],
   },
 ]);
