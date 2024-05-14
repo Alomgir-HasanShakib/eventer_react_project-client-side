@@ -12,11 +12,13 @@ import PrivateRoute from "./PrivateRoute";
 import Details from "../Pages/serviceDetails/Details";
 import UpdatePage from "../Pages/UpdatedPage/UpdatePage";
 import BookedPage from "../Pages/BookedPages/BookedPage";
+import ErrorPage from "../Pages/404Page/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
