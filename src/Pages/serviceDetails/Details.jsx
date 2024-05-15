@@ -65,7 +65,7 @@ const Details = () => {
   .then((data) => {
     if (data.insertedId) {
       Swal.fire({
-        title: "Data Successfully Added to the DataBase",
+        title: "Your booking is Complete",
         showClass: {
           popup: `
             animate__animated

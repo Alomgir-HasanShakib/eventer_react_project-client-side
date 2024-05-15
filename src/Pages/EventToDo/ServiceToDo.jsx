@@ -34,7 +34,7 @@ const ServiceToDo = ({ service }) => {
             .then((data) => {
               if (data.modifiedCount>0) {
                 Swal.fire({
-                  title: "Data Successfully Added to the DataBase",
+                  title: "Save Success",
                   showClass: {
                     popup: `
                       animate__animated
@@ -107,7 +107,7 @@ const ServiceToDo = ({ service }) => {
             </h1>
             <a >
               <button onClick={()=> handleupdatestatus(_id)} className="btn w-full bg-blue-300 border-none text-xl font-bold">
-                See Details
+               Save
               </button>
             </a>
           </div>
