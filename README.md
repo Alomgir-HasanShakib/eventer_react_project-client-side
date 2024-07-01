@@ -16,7 +16,7 @@
 ### If you want to run this project locally so you need to follow those step.
 - clone this project then open your code editor and then type this line in your terminal
   ```node
-  git clone https://github.com/Alomgir-HasanShakib/eventer_react_project-client-side.git
+  git clone git@github.com:Alomgir-HasanShakib/eventer_react_project-client-side.git
   npm install
   npm run dev
 
