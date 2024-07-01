@@ -13,6 +13,11 @@
 - Service Status: Booked services are marked as pending by default, with options to update to working or complete.
   
 ### Eventer is designed to simplify the event planning process, providing users with a streamlined, user-friendly platform to manage all their event needs.
+### If you want to run this project locally so you need to follow those step.
+- clone this project then open your code editor and then type this line in your terminal
+  ```node
+  npm install
+  npm run dev
 
 ## [Client Side Repository LInk](https://github.com/Porgramming-Hero-web-course/b9a11-client-side-Alomgir-HasanShakib)
 ## [Server Side Repository LInk](https://github.com/Porgramming-Hero-web-course/b9a11-server-side-Alomgir-HasanShakib)
